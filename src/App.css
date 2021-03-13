@@ -1,0 +1,159 @@
+.App {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.App .title {
+    color: #191919;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px white;
+    margin: 0;
+}
+
+#root {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('assets/img/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+}
+
+.category-form {
+    padding: 10px;
+    margin: 0;
+}
+
+.category-form input {
+    padding: 12px 10px;
+    background: #293462;
+    border: none;
+    color: white;
+    width: 120px;
+    outline: none;
+}
+
+.category-form button {
+    padding: 12px 10px;
+    background: #293462;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
+}
+
+.category-div {
+    display: inline-block;
+    background: #191919;
+    border: 2px solid white;
+    width: 300px;
+    height: 50vh;
+    margin: 10px;
+    position: relative;
+    overflow: auto;
+}
+
+.category-div h1 {
+    color: #E08027;
+}
+
+.task-add {
+    position: absolute;
+    background: #293462;
+    color: white;
+    width: 30px;
+    height: 30px;
+    top: 2%;
+    left: 2%;
+    border: none;
+    cursor: pointer;
+}
+
+.category-delete {
+    width: 30px;
+    height: 30px;
+    background: brown;
+    cursor: pointer;
+    position: absolute;
+    right: 5%;
+}
+
+.category-title {
+    display: flex;
+    background: #293462;
+    align-items: center;
+    justify-content: center;
+}
+
+.categories-div {
+    display: flex;
+}
+
+.task-div {
+    display: flex;
+}
+
+.task-form {
+    text-align: left;
+}
+
+.task-checkbox {
+    color: blue;
+    font-weight: bold;
+}
+
+.tasks-list {
+    margin-top: 10px;
+    margin-left: 1px;
+}
+
+.task-done {
+    text-decoration: line-through;
+}
+
+.task-normal {
+    text-decoration: none;
+}
+
+.task-modal {
+    width: 500px;
+    height: 140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background: #191919;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.task-modal ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.task-modal button {
+    background: #293462;
+    float: right;
+}
+
+.task-modal input {
+    background: none;
+    border: none;
+    color: white;
+    border-bottom: 2px solid white;
+    outline: none;
+    width: 230px;
+}
