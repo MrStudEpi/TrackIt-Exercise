@@ -57,7 +57,7 @@ function App() {
         <div className="categories-div">
             {categories.map((category) => {
                 if (category.name === '')
-                    return;
+                    return false;
                 return (<Category category={category} onDelete={handleDeleteCategory} doUpdate={handleUpdateCategory}/>);
             })}
         </div>

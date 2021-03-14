@@ -1,7 +1,7 @@
 import React, { useState , FunctionComponent} from "react";
 
 interface myProps {
-    onAdd: any;
+    onAdd: onTAdd;
 }
 
 const TaskForm: FunctionComponent<myProps> = ({onAdd}) => {

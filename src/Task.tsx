@@ -1,37 +1,26 @@
-import { TargetElement } from "@testing-library/user-event";
 import React, {FunctionComponent, useState} from "react";
 import Modal from 'react-modal';
 
 interface myProps {
     task: myTask;
-    doDelete: any;
-    doUpdate: any;
+    doDelete: onTDelete;
+    doUpdate: onTUpdate;
 }
 
-const modalstyle = {
-    content: {
-        width: '500px',
-        height: '200px',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)'
-    }
-}
+Modal.setAppElement('#root');
 
 const Task: FunctionComponent<myProps> = ({task, doDelete, doUpdate}) => {
 
-    const [content, setContent] = useState(task.title);
-    const [desc, setDesc] = useState(task.description);
     const [modalIsOpen,setIsOpen] = useState(false);
 
     let handleChangeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
         task.title = event.currentTarget.value;
-        setContent(event.currentTarget.value);
+        doUpdate(task);
     }
 
     let handleChangeDescription = (event: React.ChangeEvent<HTMLInputElement>) => {
         task.description = event.currentTarget.value;
-        setDesc(event.currentTarget.value);
+        doUpdate(task);
     }
 
     let handleDone = () => {
@@ -50,10 +39,10 @@ const Task: FunctionComponent<myProps> = ({task, doDelete, doUpdate}) => {
     return (
         <div className="input-group input-group-sm mb-3">
             <div className="input-group-text">
-                <input className="form-check-input" onClick={() => handleDone()} defaultChecked={task.isDone} type="checkbox" value=""  />
+                <input className="form-check-input" checked={task.isDone} onChange={() => handleDone()} type="checkbox"  />
             </div>
             <form onSubmit={(e) => {e.preventDefault();}}>
-                <input disabled={task.isDone} className={task.isDone ? "form-control task task-done" : "form-control task task-normal"} onChange={handleChangeTitle} value={content} type="text"/>
+                <input disabled={task.isDone} className={task.isDone ? "form-control task task-done" : "form-control task task-normal"} onChange={handleChangeTitle} value={task.title} type="text"/>
             </form>
             <button onClick={openModal}><i className="fas fa-info-circle"></i></button>
             <button onClick={() => doDelete(task)}><i className="fas fa-trash-alt"></i></button>
@@ -62,7 +51,7 @@ const Task: FunctionComponent<myProps> = ({task, doDelete, doUpdate}) => {
                     <button onClick={closeModal}>x</button>
                     <li>Id: {task.id}</li>
                     <li>Title: {task.title}</li>
-                    <li>Description: <input onChange={handleChangeDescription} value={desc}></input></li>
+                    <li>Description: <input onChange={handleChangeDescription} value={task.description}></input></li>
                     <li>Created: {task.createdAt}</li>
                     <li>isDone: {task.isDone ? "true": "false"}</li>
                 </ul>

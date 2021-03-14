@@ -31,7 +31,7 @@ const Category: FunctionComponent<myProps> = ({category, onDelete, doUpdate}) =>
             return ta.id === task.id;
         })
         tasks_list.splice(index, 1);
-        category.tasks = tasks_list;
+        category!.tasks = tasks_list;
         doUpdate(category);
     } 
 

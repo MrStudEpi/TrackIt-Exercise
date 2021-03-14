@@ -1,7 +1,7 @@
 import React, { useState, FunctionComponent } from "react";
 
 interface myProps {
-    onAdd: any;
+    onAdd: onCAdd;
 }
 
 const CategoryForm: FunctionComponent<myProps> = ({onAdd}) => {
