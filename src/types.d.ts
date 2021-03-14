@@ -2,7 +2,7 @@ type myTask = {
     createdAt?: string;
     id?: string;
     title: string;
-    description?: string;
+    description: string;
     isDone: boolean;
 }
 

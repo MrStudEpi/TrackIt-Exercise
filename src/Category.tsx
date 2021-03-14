@@ -21,6 +21,7 @@ const Category: FunctionComponent<myProps> = ({category, onDelete, doUpdate}) =>
         description: '', isDone: task.isDone,
         createdAt: current.toLocaleDateString().toString()});
         category!.tasks = tasks_list;
+        category!.showAddForm = false;
         doUpdate(category);
     }
 
